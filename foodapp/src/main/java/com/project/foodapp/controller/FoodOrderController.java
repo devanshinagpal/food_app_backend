@@ -52,7 +52,9 @@ public class FoodOrderController {
 	
 	@GetMapping("getorderbyid/{order_id}")
 	public FoodOrder getOrderByOrderId(@PathVariable("order_id") int order_id) {
+		System.out.println("");
 		return service.getFoodOrderById(order_id);
+		
 	}
 	
 	
