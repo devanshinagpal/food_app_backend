@@ -3,12 +3,16 @@ package com.project.foodapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.foodapp.dto.FoodOrder;
@@ -19,6 +23,7 @@ import com.project.foodapp.service.MenuService;
 import com.project.foodapp.service.UserService;
 
 @RestController
+@CrossOrigin
 public class FoodOrderController {
     @Autowired
 	FoodOrderService service;
@@ -38,11 +43,10 @@ public class FoodOrderController {
 		return service.updateOrder(order);
 	}
 	
-	@GetMapping("/order/{id}")
-	public List<FoodOrder> getOrderById(@PathVariable("id")  int id) {
+	@GetMapping("/order/{user_id}")
+	public List<FoodOrder> getOrderById(@PathVariable("user_id") int id) {
 		User user=userService.getUserById(id);
 		return user.getFoodOrders();
-
 	}
 	
 	@DeleteMapping("/delete/order/{user_id}")
@@ -57,5 +61,9 @@ public class FoodOrderController {
 		
 	}
 	
-	
+	@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(value=Exception.class)
+	public String exceptionGenericlass() {
+		return "null_page";
+	}
 }

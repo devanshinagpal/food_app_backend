@@ -3,6 +3,7 @@ package com.project.foodapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,7 @@ import com.project.foodapp.dto.Menu;
 import com.project.foodapp.dto.User;
 import com.project.foodapp.service.UserService;
 @RestController
-
+@CrossOrigin
 public class UserController {
 
 	@Autowired
@@ -25,6 +26,9 @@ public class UserController {
 	MenuController controller;
 
 	@PostMapping("/loginuser")
+//	@ApiResponses(value = { @ApiResponse(code = Status_Code, message = "Message")})
+//	@PostMapping(value = "/users", consumes = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE},
+//								   produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
 	public User userLogin(@RequestBody User user){
 		return service.userLogin(user);
 	}

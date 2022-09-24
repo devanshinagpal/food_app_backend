@@ -14,19 +14,15 @@ public class ItemDao {
 	@Autowired
 	ItemRepository itemRepository;
 	public List<Item> getItems() {
-		// TODO Auto-generated method stub
 		return itemRepository.findAll();
 	}
 	public Item updateItem(Item item) {
-		// TODO Auto-generated method stub
 		return itemRepository.save(item);
 	}
 	public void deleteItem(int id) {
-		// TODO Auto-generated method stub
 		itemRepository.deleteById(id);
 	}
 	public Item addItem(Item item) {
-		// TODO Auto-generated method stub
 		return itemRepository.save(item);
 	}
 	

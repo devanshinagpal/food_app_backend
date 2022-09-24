@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @JsonIgnoreType
 public class User {
@@ -25,11 +24,9 @@ public class User {
 	private String password;
 	private String role;
 	
-	//@JsonManagedReference
 	@OneToOne(mappedBy = "user" ,cascade = CascadeType.ALL)
 	private Menu menu;
 	
-	//@JsonManagedReference
 	@OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
 	private List<FoodOrder> foodOrders;
 	

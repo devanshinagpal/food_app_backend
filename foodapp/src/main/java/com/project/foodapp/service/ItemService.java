@@ -14,23 +14,19 @@ public class ItemService {
 	@Autowired
 	ItemDao itemDao;
 	
-	public List<Item> getItems() {
-		// TODO Auto-generated method stub
+	public List<Item> getItems() {	
 		return itemDao.getItems();
 	}
 
 	public Item updateItem(Item item) {
-		// TODO Auto-generated method stub
 		return itemDao.updateItem(item);
 	}
 
 	public void deleteItem(int id) {
-		// TODO Auto-generated method stub
 		itemDao.deleteItem(id);
 	}
 
 	public Item addItem(Item item) {
-		// TODO Auto-generated method stub
 		return itemDao.addItem(item);
 	}
 }

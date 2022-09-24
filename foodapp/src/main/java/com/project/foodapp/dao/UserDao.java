@@ -18,13 +18,11 @@ public class UserDao {
 		return repository.save(user);
 	}
 	public void deleteUser(int id) {
-		// TODO Auto-generated method stub
 		repository.deleteById(id);
 		System.out.println("User Deleted with id :" +id);
 	}
 	
 	public User updateUser(User updated_user, int id) {
-		// TODO Auto-generated method stub
 		User user=getUserById(id);
 		user.setName(updated_user.getName());
 		user.setPassword(updated_user.getPassword());
@@ -32,7 +30,6 @@ public class UserDao {
 		return repository.save(user);
 	}
 	public List<User> getUsers() {
-		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 
@@ -44,7 +41,6 @@ public class UserDao {
 		return repository.getByEmail(email);
 	}
 	public User userLogin(User user) {
-		// TODO Auto-generated method stub
 		User check=getByEmail(user.getEmail());
 		if(check==null)
 			return check;

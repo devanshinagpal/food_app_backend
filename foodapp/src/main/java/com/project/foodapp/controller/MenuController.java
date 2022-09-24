@@ -3,6 +3,7 @@ package com.project.foodapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.project.foodapp.service.MenuService;
 import com.project.foodapp.service.UserService;
 
 @RestController
+@CrossOrigin
 public class MenuController {
 
 	@Autowired
@@ -43,8 +45,7 @@ public class MenuController {
 	}
 	
 	@DeleteMapping("/deletemenu/{id}")
-	public void deleteMenu(
-			@PathVariable int id){
+	public void deleteMenu(@PathVariable int id){
 		service.deleteMenu(id);
 	}
 }

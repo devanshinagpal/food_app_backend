@@ -19,13 +19,10 @@ public class MenuService {
 		return menuDao.addMenu(menu);
 	}
 
-
 	public List<Menu> getMenu() {
 		// TODO Auto-generated method stub
-		
 		return menuDao.getMenu();
 	}
-
 
 	public void deleteMenu(int id) {
 		// TODO Auto-generated method stub
